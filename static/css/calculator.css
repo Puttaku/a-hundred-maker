@@ -1,0 +1,291 @@
+.center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.calculator-container {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 20em;
+    height: 20em;
+    border: 5px solid black;
+    animation: fadeIn 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+    flex-wrap: wrap;
+}
+
+.game-title {
+    animation: textIntro 3s;
+    animation-fill-mode: forwards;
+    position: absolute;
+}
+
+.choice-button {
+    width: 10em;
+    height: 2.15em;
+    flex-basis: 50%;
+    opacity: 0;
+    border: 0px solid transparent;
+    color: white;
+    font-size: 72px;
+}
+
+.number-container {
+    min-width: 414px;
+}
+
+.number {
+    font-size: 256px;
+    opacity: 0;
+    animation: fadeIn 3s;
+    animation-delay: 6s;
+    animation-fill-mode: forwards;
+    margin: 50px;
+}
+
+.up {
+    animation: flyUp 2s ease-out;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+    background-color: rgb(255, 77, 166);
+}
+
+.up:active {
+    background-color: rgb(161, 50, 106);
+}
+
+.down {
+    animation: flyDown 2s ease-out;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+    background-color: rgb(99, 255, 67);
+}
+
+.down:active {
+    background-color: rgb(74, 190, 50);
+}
+
+.left {
+    animation: flyLeft 2s ease-out;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+    background-color: rgb(255, 210, 62);
+}
+
+.left:active {
+    background-color: rgb(158, 130, 37);
+}
+
+.right {
+    animation: flyRight 2s ease-out;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+    background-color: rgb(169, 40, 255);
+}
+
+.right:active {
+    background-color: rgb(103, 23, 156);
+}
+
+.correct,
+.incorrect {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: unblur 0.25s forwards ease-out;
+}
+
+.correct>p,
+.incorrect>p {
+    font-size: 256px;
+    color: white;
+}
+
+.correct>h6,
+.incorrect>h6 {
+    font-size: 128px;
+    color: white;
+}
+
+.correct>a,
+.incorrect>a {
+    font-size: 64px;
+    animation: rainbow 2s infinite;
+}
+
+@keyframes textIntro {
+    0% {
+        opacity: 0;
+        transform: scale(1, 1);
+    }
+
+    30% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+
+    99% {
+        opacity: 0;
+        transform: scale(100, 100);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes flyUp {
+    0% {
+        opacity: 0;
+        transform: translateY(1000px);
+    }
+
+    1% {
+        opacity: 1;
+        transform: translateY(1000px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+@keyframes flyDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-1000px);
+    }
+
+    1% {
+        opacity: 1;
+        transform: translateY(-1000px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes flyLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-1000px);
+    }
+
+    1% {
+        opacity: 1;
+        transform: translateX(-1000px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes flyRight {
+    0% {
+        opacity: 0;
+        transform: translateX(1000px);
+    }
+
+    1% {
+        opacity: 1;
+        transform: translateX(1000px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes unblur {
+    from {
+        filter: blur(50px);
+        opacity: 0;
+    }
+
+    to {
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        color: orange;
+    }
+
+    10% {
+        color: purple;
+    }
+
+    20% {
+        color: red;
+    }
+
+    30% {
+        color: CadetBlue;
+    }
+
+    40% {
+        color: yellow;
+    }
+
+    50% {
+        color: coral;
+    }
+
+    60% {
+        color: green;
+    }
+
+    70% {
+        color: cyan;
+    }
+
+    80% {
+        color: DeepPink;
+    }
+
+    90% {
+        color: DodgerBlue;
+    }
+
+    100% {
+        color: orange;
+    }
+}

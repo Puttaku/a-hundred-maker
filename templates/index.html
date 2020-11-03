@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+A HUNDRED MAKER.
+{% endblock title %}
+{% block content %}
+<script>
+    function checkAnswer(answer) {
+        console.log(answer, "{{method}}")
+        answer == "{{method}}" ? 
+        document.getElementsByClassName("correct")[0].style.display = "flex" : document.getElementsByClassName("incorrect")[0].style.display = "flex"
+    }
+</script>
+<div class=center-flex>
+    <h1 class=game-title>A HUNDRED MAKER.</h1>
+    <div class=number-container>
+        <p class=number>{{numberOne}}</p>
+    </div>
+    <div class=calculator-container>
+        <button class="choice-button up" name="plus" onclick="checkAnswer('plus')">+</button>
+        <button class="choice-button down" name="minus" onclick="checkAnswer('minus')">-</button>
+        <button class="choice-button left" name="multiply" onclick="checkAnswer('multiply')">×</button>
+        <button class="choice-button right" name="diverge" onclick="checkAnswer('diverge')">÷</button>
+    </div>
+    <div class=number-container>
+        <p class=number>{{numberTwo}}</p>
+    </div>
+    <div class=correct>
+        <p>Correct</p>
+        <a href=".">Again?</a>
+    </div>
+    <div class=incorrect>
+        <p>Incorrect</p>
+        <h6>The answer is : {{numberOne}} 
+        {% if method == "plus" %} +
+        {% elif method == "minus" %} -
+        {% elif method == "multiply" %} ×
+        {% elif method == "diverge" %} ÷
+        {% endif %} 
+        {{numberTwo}}</h6>
+        <a href=".">Retry?</a>
+    </div>
+</div>
+{% endblock content %}
